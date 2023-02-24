@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Survey frontend
+
+A frontend client written in React that uses [survey-backend](https://github.com/apersic/survey-backend) as an API to display survey questions and save user answers.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
