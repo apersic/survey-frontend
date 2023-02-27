@@ -1,41 +1,32 @@
-import Card from "../../components/Card/Card";
-import Layout from "../../components/Layout/Layout";
+import { useEffect } from "react";
+import LoadingComponent from "../../components/LoadingComponent/LoadingComponent";
+import { SurveyDescription } from "./components/SurveyDescription";
+import SurveyForm from "./components/SurveyForm";
+import { useSurvey } from "./consumers/useSurvey";
 import * as S from "./SurveyPage.styles";
 
-const MOCK_DATA = [
-    {
-        questionId: "film",
-        questionType: "text",
-        label: "What film did you watch",
-        required: true,
-        attributes: null,
-    },
-    {
-        questionId: "review",
-        questionType: "rating",
-        label: "Rate the film",
-        required: true,
-        attributes: {
-            min: 1,
-            max: 5
-        },
-    }
-];
-
 const SurveyPage = () => {
+    const { data, getData } = useSurvey();
+
+    useEffect(() => {
+        (async () => await getData())();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    if (data.isLoading) {
+        return (
+            <S.Layout>
+                <LoadingComponent text="Loading" />
+            </S.Layout>
+        );
+    }
+
     return (
-        <Layout>
-            <S.SurveyTitle>
-                Film feedback form
-            </S.SurveyTitle>
-            <S.SurveyDescription>
-                Thank you for participating bla bla bla bla v bla bla bla bla
-            </S.SurveyDescription>
-            <Card>
-                <p>Question example</p>
-                <span>answer field</span>
-            </Card>
-        </Layout>
+        <S.Layout>
+            <S.SurveyTitle>{data.survey.attributes.title}</S.SurveyTitle>
+            <SurveyDescription content={data.survey.attributes.description} />
+            <SurveyForm questions={data.survey.attributes.questions} />
+        </S.Layout>
     );
 }
 
