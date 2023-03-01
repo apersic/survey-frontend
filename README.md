@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple frontend app written in React that consumes 'survey-backed' API to display survey answers and allow users to fill out a survey.
 
 ## Available Scripts
 
