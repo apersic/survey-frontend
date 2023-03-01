@@ -20,4 +20,11 @@ export class SurveyService {
             },
         });
     }
+
+    submitAnswers(payload: any, surveyId: string): Promise<AxiosResponse> {
+        return this.apiService.post({
+            resource: `${this.baseApiRoute}/${surveyId}/answers`,
+            data: JSON.stringify(payload)
+        });
+    }
 }

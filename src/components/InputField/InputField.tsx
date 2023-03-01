@@ -28,6 +28,7 @@ interface InputFieldProps {
     inputProps?: NumberInputProps;
     onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
     checked?: boolean;
+    inputId: string;
 }
 
 export const InputField = ({
@@ -48,8 +49,9 @@ export const InputField = ({
     className,
     onClick,
     checked,
+    inputId,
 }: InputFieldProps) => {
-    const isError = error !== undefined;
+    const isError = error !== '';
     const finalHelperText = isError ? error : helperText;
 
     const commonProps = {
@@ -66,6 +68,7 @@ export const InputField = ({
         select,
         rows,
         checked,
+        id: inputId,
     };
 
     return (

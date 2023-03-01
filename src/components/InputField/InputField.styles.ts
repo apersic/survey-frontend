@@ -6,6 +6,7 @@ export const InputField = styled.div<{ $error?: boolean }>`
     border-radius: 4px;
     background-color: ${colors.grey2};
     padding: 4px 8px;
+    position: relative;
 
     ${({ $error }) => {
         if ($error) {
@@ -14,7 +15,9 @@ export const InputField = styled.div<{ $error?: boolean }>`
 
                 & > span.error {
                     position: absolute;
-                    bottom: -1.5rem;
+                    bottom: -1rem;
+                    font-size: 0.9rem;
+                    font-family: sans-serif;
                     color: ${colors.error};
                     text-transform: capitalize;
                 }

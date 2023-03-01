@@ -19,7 +19,24 @@ export default function useSurveyApiConsumer() {
         }
     };
 
+    const submitAnswers = async (payload: any, surveyId: string) => {
+        try {
+            const response = await surveyService.submitAnswers(payload, surveyId);
+
+            toast.show({
+                message: "Sucess",
+                severity: "info",
+                wait: 3000
+            });
+
+            return response
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     return {
         getSurvey,
+        submitAnswers,
     };
 }
