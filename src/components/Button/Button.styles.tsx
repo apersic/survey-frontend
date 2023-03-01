@@ -15,6 +15,12 @@ export const Button = styled.button`
     text-transform: 'none',
     width: 100%;
     min-width: 220px;
+    cursor: pointer;
+
+    &:disabled {
+        background-color: ${colors.grey2};
+        border: 1px solid ${colors.white};
+    }
 
     ${responsive.phone} {
         min-width: 100%;

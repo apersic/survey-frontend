@@ -7,9 +7,11 @@ export interface CardProps {
     label: string,
     required: boolean,
     attributes: Object | null,
+    onChange: (e: any) => void,
+    error?: string | undefined,
 }
 
-const Card = ({ questionId, questionType, label, required, attributes }: CardProps) => {
+const Card = ({ questionId, questionType, label, required, attributes, onChange, error }: CardProps) => {
     const getInputType = () => {
         if (questionType === "rating") {
             return "number";
@@ -21,7 +23,7 @@ const Card = ({ questionId, questionType, label, required, attributes }: CardPro
     return (
         <S.Card>
             <S.CardText>{label}</S.CardText>
-            <InputField type={getInputType()} placeholder="Write your answer here..." {...attributes} />
+            <InputField inputId={questionId} type={getInputType()} {...attributes} onChange={onChange} error={error} />
         </S.Card>
     );
 }

@@ -13,4 +13,5 @@ export const Toast = styled.div`
     border-radius: 4px;
     padding: 24px;
     z-index: 10;
+    font-family: sans-serif;
 `;
