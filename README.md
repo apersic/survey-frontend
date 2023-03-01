@@ -1,4 +1,8 @@
-# Description
+# Survey frontend
+
+A frontend client written in React that uses [survey-backend](https://github.com/apersic/survey-backend) as an API to display survey questions and save user answers.
+
+## Getting Started with Create React App
 
 A simple frontend app written in React that consumes 'survey-backed' API to display survey answers and allow users to fill out a survey.
 
