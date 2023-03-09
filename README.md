@@ -2,9 +2,9 @@
 
 A frontend client written in React that uses [survey-backend](https://github.com/apersic/survey-backend) as an API to display survey questions and save user answers.
 
-## Getting Started with Create React App
+## Docker
 
-A simple frontend app written in React that consumes 'survey-backed' API to display survey answers and allow users to fill out a survey.
+To build the app using Docker, in the root directory run the command 'docker compose up'. The app will then be available at 'http://localhost:8080/'.
 
 ## Available Scripts
 
